@@ -1,5 +1,4 @@
 const express = require("express");
-const router = express.Router();
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -26,7 +25,12 @@ const blogRoutes = require("./routes/blogRoutes");
 const careerJobPostRoutes = require("./routes/careerJobPostRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // or "*" if you want to allow all
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
